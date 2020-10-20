@@ -1,0 +1,17 @@
+import re
+
+txt = "CAMILO PISCO (ZB 18771 8121 NW 68TH ST 33166-2797 MIAMI, FL United States"
+
+#ZB 18771
+#ZB18771
+#ZB-18771
+
+#Check if "Portugal" is in the string:
+x = re.findall("ZB+[\w.-][0-9][0-9][0-9][0-9][0-9]|ZB[0-9][0-9][0-9][0-9][0-9]|ZB+[\s][0-9][0-9][0-9][0-9][0-9]", txt)
+print(x)
+
+y = re.findall("ZB+[\w.-]\d{5,}|ZB\d{5,}|ZB+[\s]\d{5,}", txt)
+print(y)
+
+z = re.findall("(?:ZB|zb)(?:-| |)\d{5,}", txt)
+print(z)
